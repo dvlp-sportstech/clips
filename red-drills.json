@@ -1,41 +1,5 @@
 [
  {
-  "id": "BH1_22",
-  "name": "Wall Finger Tip Dribble",
-  "video": "Wall Finger Tip Dribble.mp4",
-  "skill": "Ball Handling"
- },
- {
-  "id": "BH1_35",
-  "name": "Cones Cross and Footwork",
-  "video": "Cones Cross and Footwork.mp4",
-  "skill": "Ball Handling"
- },
- {
-  "id": "BH1_36",
-  "name": "Weak Hand Creative",
-  "video": "Creative Handles.mp4",
-  "skill": "Ball Handling"
- },
- {
-  "id": "BH2_2",
-  "name": "Walking One Hand Cross",
-  "video": "1 hand cross build ups mvmt.mp4",
-  "skill": "Ball Handling"
- },
- {
-  "id": "BH2_3",
-  "name": "Cuff Dribbles",
-  "video": "Cuff Dribbles.mp4",
-  "skill": "Ball Handling"
- },
- {
-  "id": "BH2_5",
-  "name": "Dribble Stabs",
-  "video": "Dribble Stabs.mp4",
-  "skill": "Ball Handling"
- },
- {
   "id": "BH2_17",
   "name": "Forward Walk Behind Back Crossover",
   "video": "Forward Walk Behind Back.mp4",
@@ -48,33 +12,9 @@
   "skill": "Ball Handling"
  },
  {
-  "id": "BH2_19",
-  "name": "Combos: Wall Tap Dribble",
-  "video": "Wall Tap Dribble.mp4",
-  "skill": "Ball Handling"
- },
- {
   "id": "BH2_20",
   "name": "Reverse Walk Between Legs",
   "video": "Reverse Walk Between Legs.mp4",
-  "skill": "Ball Handling"
- },
- {
-  "id": "BH2_21",
-  "name": "Wall Sit Dribbles",
-  "video": "Wall Sit Dribble.mp4",
-  "skill": "Ball Handling"
- },
- {
-  "id": "BH2_22",
-  "name": "Wall Finger Tip Dribble",
-  "video": "Wall Finger Tip Dribble.mp4",
-  "skill": "Ball Handling"
- },
- {
-  "id": "BH2_29",
-  "name": "Cones Cross and Footwork",
-  "video": "Cones Cross and Footwork.mp4",
   "skill": "Ball Handling"
  },
  {
@@ -90,24 +30,6 @@
   "skill": "Ball Handling"
  },
  {
-  "id": "BH2_36",
-  "name": "Cones Cross and Footwork",
-  "video": "Cones Cross and Footwork.mp4",
-  "skill": "Ball Handling"
- },
- {
-  "id": "BH2_38",
-  "name": "Weak Hand Creative",
-  "video": "Creative Handles.mp4",
-  "skill": "Ball Handling"
- },
- {
-  "id": "BH3_7",
-  "name": "Dribble Stabs",
-  "video": "Dribble Stabs.mp4",
-  "skill": "Ball Handling"
- },
- {
   "id": "BH3_17",
   "name": "Forward Walk Behind Back Crossover",
   "video": "Forward Walk Behind Back.mp4",
@@ -120,21 +42,9 @@
   "skill": "Ball Handling"
  },
  {
-  "id": "BH3_19",
-  "name": "Combos: Wall Tap Dribble",
-  "video": "Wall Tap Dribble.mp4",
-  "skill": "Ball Handling"
- },
- {
   "id": "BH3_20",
   "name": "Reverse Walk Between Legs",
   "video": "Reverse Walk Between Legs.mp4",
-  "skill": "Ball Handling"
- },
- {
-  "id": "BH3_21",
-  "name": "Wall Sit Dribbles",
-  "video": "Wall Sit Dribble.mp4",
   "skill": "Ball Handling"
  },
  {
@@ -159,18 +69,6 @@
   "id": "BH3_36",
   "name": "Pound > Pound > Between",
   "video": "Pound>Pound>Between.mp4",
-  "skill": "Ball Handling"
- },
- {
-  "id": "BH3_37",
-  "name": "Wall Finger Tip Dribble",
-  "video": "Wall Finger Tip Dribble.mp4",
-  "skill": "Ball Handling"
- },
- {
-  "id": "BH3_38",
-  "name": "Weak Hand Creative",
-  "video": "Creative Handles.mp4",
   "skill": "Ball Handling"
  },
  {
@@ -606,18 +504,6 @@
   "skill": "Shooting"
  },
  {
-  "id": "SH1_3",
-  "name": "Floater",
-  "video": "03_Floater_Back.mp4",
-  "skill": "Shooting"
- },
- {
-  "id": "SH1_4",
-  "name": "Footwork Shooting",
-  "video": "10_1-2_Shot.mp4",
-  "skill": "Shooting"
- },
- {
   "id": "SH1_5",
   "name": "Footwork Glass Shooting",
   "video": "09_1-2_Perfect_Glass.mp4",
@@ -637,7 +523,7 @@
  },
  {
   "id": "SH1_8",
-  "name": "Crossover Pull Ups ",
+  "name": "Crossover Pull Ups",
   "video": "Crossover Pullup.mp4",
   "skill": "Shooting"
  },
@@ -649,8 +535,8 @@
  },
  {
   "id": "SH1_10",
-  "name": "Jab Step Shot ",
-  "video": "JabStepShot.mp4",
+  "name": "Jab Step Shot",
+  "video": "Jab Step To Pull Up.mov",
   "skill": "Shooting"
  },
  {
@@ -738,12 +624,6 @@
   "skill": "Shooting"
  },
  {
-  "id": "SH1_25",
-  "name": "3s",
-  "video": "3 Point Shooting.mp4",
-  "skill": "Shooting"
- },
- {
   "id": "SH2_1",
   "name": "One Hand Form Shooting",
   "video": "05_One_Hand_Form.mp4",
@@ -753,12 +633,6 @@
   "id": "SH2_2",
   "name": "Thigh Roll Ups",
   "video": "08_Thigh_Roll.mp4",
-  "skill": "Shooting"
- },
- {
-  "id": "SH2_3",
-  "name": "Floater",
-  "video": "03_Floater_Back.mp4",
   "skill": "Shooting"
  },
  {
@@ -817,7 +691,7 @@
  },
  {
   "id": "SH2_13",
-  "name": "Crossover Pull Ups ",
+  "name": "Crossover Pull Ups",
   "video": "Crossover Pullup.mp4",
   "skill": "Shooting"
  },
@@ -847,8 +721,8 @@
  },
  {
   "id": "SH2_18",
-  "name": "Jab Step Shot ",
-  "video": "JabStepShot.mp4",
+  "name": "Jab Step Shot",
+  "video": "Jab Step To Pull Up.mov",
   "skill": "Shooting"
  },
  {
@@ -876,12 +750,6 @@
   "skill": "Shooting"
  },
  {
-  "id": "SH2_23",
-  "name": "3s",
-  "video": "3 Point Shooting.mp4",
-  "skill": "Shooting"
- },
- {
   "id": "SH2_24",
   "name": "Pull Up 3s",
   "video": "Pull up 3s.mp4",
@@ -900,12 +768,6 @@
   "skill": "Shooting"
  },
  {
-  "id": "SH2_27",
-  "name": "Footwork Shooting",
-  "video": "10_1-2_Shot.mp4",
-  "skill": "Shooting"
- },
- {
   "id": "SH2_28",
   "name": "Footwork Glass Shooting",
   "video": "09_1-2_Perfect_Glass.mp4",
@@ -921,12 +783,6 @@
   "id": "SH3_2",
   "name": "Thigh Roll Ups",
   "video": "08_Thigh_Roll.mp4",
-  "skill": "Shooting"
- },
- {
-  "id": "SH3_3",
-  "name": "Floater",
-  "video": "03_Floater_Back.mp4",
   "skill": "Shooting"
  },
  {
@@ -979,7 +835,7 @@
  },
  {
   "id": "SH3_12",
-  "name": "Crossover Pull Ups ",
+  "name": "Crossover Pull Ups",
   "video": "Crossover Pullup.mp4",
   "skill": "Shooting"
  },
@@ -1009,8 +865,8 @@
  },
  {
   "id": "SH3_17",
-  "name": "Jab Step Shot ",
-  "video": "JabStepShot.mp4",
+  "name": "Jab Step Shot",
+  "video": "Jab Step To Pull Up.mov",
   "skill": "Shooting"
  },
  {
@@ -1056,19 +912,9 @@
   "skill": "Shooting"
  },
  {
-  "id": "SH3_25",
-  "name": "3s",
-  "video": "3 Point Shooting.mp4",
-  "skill": "Shooting"
- },
- {
-  "id": "SH3_26",
-  "name": "Footwork Shooting",
-  "video": "10_1-2_Shot.mp4"
- },
- {
   "id": "SH3_27",
   "name": "Footwork Glass Shooting",
-  "video": "09_1-2_Perfect_Glass.mp4"
+  "video": "09_1-2_Perfect_Glass.mp4",
+  "skill": ""
  }
 ]
