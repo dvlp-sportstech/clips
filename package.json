@@ -1,0 +1,13 @@
+{
+  "name": "dvlp-clips",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check-manifest.mjs",
+    "import": "node scripts/import-drive-clips.mjs",
+    "test": "node --test \"scripts/*.test.mjs\""
+  },
+  "devDependencies": {
+    "ffmpeg-static": "^5.2.0"
+  }
+}

@@ -24,7 +24,7 @@ export function checkManifest(manifest, plans, red, hasFile) {
 
 /* the newest core/v{N}/plans.json on go.dvlp.app: versions are added, never removed, so the first 404 ends the search.
    Any other failure stops the check, so an outage can never pass it against an older version. */
-async function newestPlans() {
+export async function newestPlans() {
   const at = n => `https://go.dvlp.app/core/v${n}/plans.json`;
   let n = 0;
   for (;;) {
