@@ -1,0 +1,19 @@
+# The video manifest's check (app-onboarding R9); its rules are in scripts/check-manifest.mjs.
+name: manifest check
+permissions:
+  contents: read
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test "scripts/*.test.mjs"
+      - run: node scripts/check-manifest.mjs
