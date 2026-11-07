@@ -1,0 +1,19 @@
+# Move to .github/workflows/manifest-check.yml (the agent token cannot write workflow files; add it from GitHub's web editor).
+# The video manifest's check (app-onboarding R9): every key a drill ID in the newest published core/v{N}/plans.json,
+# every URL a go.dvlp.app/clips/ file in this repo, and no red-marked drill. A failing check blocks the merge.
+name: manifest check
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test "scripts/*.test.mjs"
+      - run: node scripts/check-manifest.mjs
