@@ -22,22 +22,30 @@ export function checkManifest(manifest, plans, red, hasFile) {
   return errors;
 }
 
-/* the newest core/v{N}/plans.json on go.dvlp.app: versions are added, never removed, so the first missing N ends the search */
+/* the newest core/v{N}/plans.json on go.dvlp.app: versions are added, never removed, so the first 404 ends the search.
+   Any other failure stops the check, so an outage can never pass it against an older version. */
 async function newestPlans() {
-  let found = null;
-  for (let n = 1; ; n++) {
-    const r = await fetch(`https://go.dvlp.app/core/v${n}/plans.json`);
-    if (!r.ok) break;
-    found = await r.json();
+  const at = n => `https://go.dvlp.app/core/v${n}/plans.json`;
+  let n = 0;
+  for (;;) {
+    const r = await fetch(at(n + 1), { method: 'HEAD' });
+    if (r.status === 404) break;
+    if (!r.ok) throw new Error(`${at(n + 1)} answered ${r.status}`);
+    n++;
   }
-  if (!found) throw new Error('no core/v{N}/plans.json is published on go.dvlp.app yet: publish core first (dvlp: node scripts/publish-core.mjs)');
-  return found;
+  if (!n) throw new Error('no core/v{N}/plans.json is published on go.dvlp.app yet: publish core first (dvlp: node scripts/publish-core.mjs)');
+  return (await fetch(at(n))).json();
 }
 
 if (resolve(process.argv[1] || '') === fileURLToPath(import.meta.url)) {
-  const src = process.argv[2], read = f => JSON.parse(readFileSync(join(ROOT, f), 'utf8'));
-  const plans = !src ? await newestPlans() : /^https?:/.test(src) ? await (await fetch(src)).json() : JSON.parse(readFileSync(src, 'utf8'));
-  const errors = checkManifest(read('manifest.json'), plans, read('red-drills.json'), f => existsSync(join(ROOT, f)));
-  if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
-  console.log(`manifest.json: ${Object.keys(read('manifest.json')).length} clips, all good`);
+  try {
+    const src = process.argv[2], read = f => JSON.parse(readFileSync(join(ROOT, f), 'utf8'));
+    const plans = !src ? await newestPlans() : /^https?:/.test(src) ? await (await fetch(src)).json() : JSON.parse(readFileSync(src, 'utf8'));
+    const errors = checkManifest(read('manifest.json'), plans, read('red-drills.json'), f => existsSync(join(ROOT, f)));
+    if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
+    console.log(`manifest.json: ${Object.keys(read('manifest.json')).length} clips, all good`);
+  } catch (err) {
+    console.error('manifest check could not run: ' + err.message);
+    process.exit(1);
+  }
 }
