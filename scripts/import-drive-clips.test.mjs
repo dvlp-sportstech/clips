@@ -1,7 +1,7 @@
 // node --test "scripts/*.test.mjs" — the Drive import's plan and its stop checks, with no Drive or encoder, and the workbook CSV read.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { planImport, newlyRed, clearedWithSameVideo } from './import-drive-clips.mjs';
+import { planImport, newlyRed, clearedWithSameVideo, isVideo } from './import-drive-clips.mjs';
 import { drillRows, driveId } from './workbook.mjs';
 
 const PLANS = { exercises: [{ aliases: ['BH1_1', 'BH3_1'] }, { aliases: ['BH1_2'] }, { aliases: ['FW1_1'] }, { aliases: ['SH1_1'] }, { aliases: ['FN1_1'] }] };
@@ -60,4 +60,12 @@ test('the workbook CSV: both Drive link shapes, the link taken by position, only
   const csv = 'Drill ID,Drill Name,Instructions,Demo Video,#REF!,Equipment,Tag,Court,Skill\n' +
     'BH1_1,"Pounds, low",50 reps, Low Pounds.mp4 ,https://drive.google.com/open?id=1DNMoyD7N8x0EbiUoZ1GAp_cRjxpAUgba,1 Ball,,Anywhere,Ball Handling\n,,,,\n';
   assert.deepEqual(drillRows(csv), [{ id: 'BH1_1', name: 'Pounds, low', video: 'Low Pounds.mp4', driveId: '1DNMoyD7N8x0EbiUoZ1GAp_cRjxpAUgba', skill: 'Ball Handling' }]);
+});
+
+test('a download counts as a video by its own signature (MP4 and MOV), never a sign-in page', () => {
+  const box = brand => Buffer.concat([Buffer.from([0, 0, 0, 20]), Buffer.from('ftyp' + brand), Buffer.alloc(8)]);
+  assert.equal(isVideo(box('isom')), true);
+  assert.equal(isVideo(box('qt  ')), true);
+  assert.equal(isVideo(Buffer.from('<!doctype html><html><title>Google Drive: Sign-in</title>')), false);
+  assert.equal(isVideo(Buffer.alloc(4)), false);
 });

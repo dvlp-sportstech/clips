@@ -45,6 +45,10 @@ export function clearedWithSameVideo(red, previousRed, drills) {
   return previousRed.filter(r => !red.has(r.id) && now.has(r.id) && String(now.get(r.id)).trim() === String(r.video).trim()).map(r => r.id);
 }
 
+export function isVideo(buf) {
+  return buf.length > 12 && buf.toString('latin1', 4, 8) === 'ftyp';
+}
+
 export function sortedManifest(m) {
   return Object.fromEntries(Object.entries(m).sort((a, b) => a[0].localeCompare(b[0], 'en', { numeric: true })));
 }
@@ -58,10 +62,12 @@ export const ENCODE_FILTER = '[0:v]split[a][b];[a]scale=540:960:force_original_a
 const DOWNLOAD_MS = 5 * 60 * 1000, DOWNLOAD_MAX = 1024 * 1024 * 1024;
 async function download(id) {
   const r = await fetch('https://drive.google.com/uc?export=download&id=' + id, { signal: AbortSignal.timeout(DOWNLOAD_MS) });
-  const type = r.headers.get('content-type') || '';
-  if (!r.ok || !/^video\//.test(type)) throw new Error(`Drive answered ${r.status} ${type || 'no type'} (is the file shared with anyone with the link?)`);
+  if (!r.ok) throw new Error(`Drive answered ${r.status}`);
   if (Number(r.headers.get('content-length') || 0) > DOWNLOAD_MAX) throw new Error('the Drive file is over 1 GB');
-  return Buffer.from(await r.arrayBuffer());
+  const buf = Buffer.from(await r.arrayBuffer());
+  /* Drive labels .mov files inconsistently, so the file's own signature decides: MP4 and MOV both carry ftyp at byte 4 */
+  if (!isVideo(buf)) throw new Error(`Drive sent ${r.headers.get('content-type') || 'no type'}, not a video (is the file shared with anyone with the link?)`);
+  return buf;
 }
 async function encode(ffmpeg, buf, out) {
   const work = mkdtempSync(join(tmpdir(), 'clip-')), src = join(work, 'src');
